@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 8800 });
 
 const preMsg = []  // 保存消息历史
+console.log(22222)
 
 
 

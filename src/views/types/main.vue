@@ -30,7 +30,7 @@
           <!-- {{ messageArr }} -->
           <p v-for="(item, ind) of messageArr" :key="ind">{{ item }}</p>
         </div>
-        <input type="text" v-model="soketMessage">
+        <input type="text" v-model="soketMessage" @keyup.enter="toSendMessage">
         <el-button style="margin-left: 10px;" type="primary" size="small" @click="toSendMessage">Send</el-button>
       </div>
     </el-card>
@@ -257,6 +257,7 @@ import bg7 from '@/assets/images/bg7.jpeg'
 
 const imgs = ref([bg6, bg7])
 let ip = window.LOCAL_IP
+console.log('局域网',ip)
 defineProps({
   msg: String,
 });
@@ -267,7 +268,6 @@ let iptchange = ref('');
 //进度条
 let progressCount = ref(0)
 let num10 = setInterval(() => {
-  console.log(progressCount.value)
   if (progressCount.value < 80) {
     progressCount.value += 10
   } else {
