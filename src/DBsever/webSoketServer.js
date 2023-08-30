@@ -3,7 +3,7 @@ const wss = new WebSocket.Server({ port: 8800 });
 
 const preMsg = []  // 保存消息历史
 
-
+consoele.log('mymac')
 
 wss.on('connection', (ws) => {
   // 发送消息历史5条
