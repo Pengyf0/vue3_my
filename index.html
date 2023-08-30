@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/vite.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite_vue</title>
+  <style>
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 40%;
+      z-index: 1001;
+      width: 90px;
+      height: 90px;
+      margin: -45px 0 0 -45px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #fe9501;
+      -webkit-animation: spin 2s linear infinite;
+      -ms-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      -o-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #fe9501;
+      -webkit-animation: spin 3s linear infinite;
+      -moz-animation: spin 3s linear infinite;
+      -o-animation: spin 3s linear infinite;
+      -ms-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #fe9501;
+      -moz-animation: spin 1.5s linear infinite;
+      -o-animation: spin 1.5s linear infinite;
+      -ms-animation: spin 1.5s linear infinite;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .loadOut {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes textDance {
+      0% {
+        transform: translateY(0);
+      }
+
+      20% {
+        transform: translateY(-24px);
+      }
+
+      40%,
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .loadText span {
+      display: inline-block;
+      animation: textDance 1.5s ease-in-out infinite;
+      animation-delay: calc(.1s*var(--i));
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="loadOut">
+      <div class="loadText">
+        <span style="--i:0">正</span>
+        <span style="--i:1">在</span>
+        <span style="--i:2">加</span>
+        <span style="--i:3">载</span>
+        <span style="--i:4">中</span>
+        <span style="--i:5">.</span>
+        <span style="--i:6">.</span>
+        <span style="--i:7">.</span>
+      </div>
+    </div>
+
+    <!-- <div id="loader-wrapper">
+      <div id="loader"></div>
+    </div> -->
+  </div>
+  <script>
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   console.log('html页面加载完成')
+    //   tabCount++
+    //   console.log('增加', tabCount)
+    //   localStorage.setItem('tab', tabCount)
+    // })
+
+    // document.addEventListener('beforeunload', () => {
+    //   alert('当前网站无多余')
+    //   tabCount--
+    //   localStorage.setItem('tab', tabCount)
+    //   if (tabCount === 0) {
+    //     // 清空登录信息
+    //     alert('当前网站无多余')
+    //   }
+    // })
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
