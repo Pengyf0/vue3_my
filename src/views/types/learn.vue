@@ -43,8 +43,8 @@
 <script setup>
 import { ref, reactive } from "vue";
 import loopChart from "@/components/loopChart/index.vue";
-import myDialog from "@/components/dialog/index.vue";
-import myDialog2 from "@/components/dialog/dialog.vue";
+import myDialog from "@/components/mydialog/index.vue";
+import myDialog2 from "@/components/mydialog/mydialog2.vue";
 import myTr2 from "@/components/tr2Wrap/index.vue";
 
 

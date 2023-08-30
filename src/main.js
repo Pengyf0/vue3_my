@@ -13,11 +13,9 @@ import echarts from '@/utils/echarts.js'
 
 let tabCount = 1
 localStorage.setItem('44', tabCount)
-console.log(6666)
 document.addEventListener('onload', () => {
   tabCount++
   alert('当前网站—+111')
-
   console.log('增加', tabCount)
 })
 // document.addEventListener('onunload', () => {
