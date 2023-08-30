@@ -2,9 +2,7 @@ const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 8800 });
 
 const preMsg = []  // 保存消息历史
-console.log(22222)
-
-consoele.log('mymac')
+console.log('开启服务8800')
 
 wss.on('connection', (ws) => {
   // 发送消息历史5条
