@@ -38,3 +38,7 @@ app.get('/api/test2', (req, res) => {
   console.log(33, req.route.path);
   res.json(list);
 })
+app.post('/api/postName', (req, res) => {
+  console.log(33, req.route.path);
+  res.json(list);
+})

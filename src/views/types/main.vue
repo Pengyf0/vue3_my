@@ -230,7 +230,7 @@
         </div>
       </template>
       <div>
-
+        <myFecths></myFecths>
       </div>
     </el-card>
 
@@ -250,6 +250,7 @@ import myWord from "@/components/wordCloud/wordCloud.vue"
 import myDel from "@/components/scrollX/scrollX.vue"
 import myScale from "@/components/scrollScale/scollScale.vue"
 import myImg from "@/components/Img2x3x/Img2x3x.vue"
+import myFecths from "@/components/allAPI/allAPI.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -257,7 +258,7 @@ import bg7 from '@/assets/images/bg7.jpeg'
 
 const imgs = ref([bg6, bg7])
 let ip = window.LOCAL_IP
-console.log('局域网',ip)
+console.log('局域网', ip)
 defineProps({
   msg: String,
 });
