@@ -1,6 +1,6 @@
 
 <template>
-  <div class="mainPage">
+  <div class="mainPage" ref="mymain" @scroll="onScroll">
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
@@ -261,6 +261,19 @@ let ip = window.LOCAL_IP
 console.log('局域网', ip)
 defineProps({
   msg: String,
+});
+
+let mymain = ref(null)
+function onScroll(e) {
+  console.log(mymain.value.scrollTop)
+  console.log(888, e)
+}
+window.addEventListener('scroll', function (e) {
+  if (window.scrollY > 500) {
+    console.log('大于500', e)
+  } else {
+    console.log('小于500', e)
+  }
 });
 
 const count = ref(0);
