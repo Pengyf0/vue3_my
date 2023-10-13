@@ -233,6 +233,16 @@
         <myFecths></myFecths>
       </div>
     </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          html2canvas
+        </div>
+      </template>
+      <div>
+        <myHtml2canvas></myHtml2canvas>
+      </div>
+    </el-card>
 
 
   </div>
@@ -251,6 +261,7 @@ import myDel from "@/components/scrollX/scrollX.vue"
 import myScale from "@/components/scrollScale/scollScale.vue"
 import myImg from "@/components/Img2x3x/Img2x3x.vue"
 import myFecths from "@/components/allAPI/allAPI.vue"
+import myHtml2canvas from "@/components/html2canvas/html2canvas.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -447,6 +458,11 @@ function addWave() {//增加按钮波纹
     height: 400px;
     opacity: 0;
   }
+}
+
+:deep(.el-card__body) {
+  max-height: 310px;
+  overflow: auto;
 }
 
 #chat-container {
