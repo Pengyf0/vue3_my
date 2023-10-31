@@ -243,6 +243,26 @@
         <myHtml2canvas></myHtml2canvas>
       </div>
     </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          我的评价
+        </div>
+      </template>
+      <div>
+        <myStar :max="10" :num="6"></myStar>
+      </div>
+    </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          我的下载
+        </div>
+      </template>
+      <div>
+        <myDownVideo></myDownVideo>
+      </div>
+    </el-card>
 
 
   </div>
@@ -262,6 +282,8 @@ import myScale from "@/components/scrollScale/scollScale.vue"
 import myImg from "@/components/Img2x3x/Img2x3x.vue"
 import myFecths from "@/components/allAPI/allAPI.vue"
 import myHtml2canvas from "@/components/html2canvas/html2canvas.vue"
+import myStar from "@/components/stars/star.vue"
+import myDownVideo from "@/components/download/download.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -276,14 +298,13 @@ defineProps({
 
 let mymain = ref(null)
 function onScroll(e) {
-  console.log(mymain.value.scrollTop)
-  console.log(888, e)
+
 }
 window.addEventListener('scroll', function (e) {
   if (window.scrollY > 500) {
-    console.log('大于500', e)
+
   } else {
-    console.log('小于500', e)
+
   }
 });
 
