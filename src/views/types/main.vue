@@ -263,6 +263,26 @@
         <myDownVideo></myDownVideo>
       </div>
     </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          我的qrcode
+        </div>
+      </template>
+      <div>
+        <myQRCode></myQRCode>
+      </div>
+    </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          文字GPT
+        </div>
+      </template>
+      <div>
+        <wordDance></wordDance>
+      </div>
+    </el-card>
 
 
   </div>
@@ -284,6 +304,8 @@ import myFecths from "@/components/allAPI/allAPI.vue"
 import myHtml2canvas from "@/components/html2canvas/html2canvas.vue"
 import myStar from "@/components/stars/star.vue"
 import myDownVideo from "@/components/download/download.vue"
+import myQRCode from "@/components/qrcode/qrcode.vue"
+import wordDance from "@/components/wordDance/wordDance.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
