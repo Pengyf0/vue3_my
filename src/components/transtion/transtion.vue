@@ -4,9 +4,9 @@
     <transition name="up">
         <div class="item1" v-show="nowId" >1</div>
     </transition>
-    <!-- <transition  name="up">
+    <transition  name="up">
         <div class="item2" v-show="nowId==1" @click="nowId=2">2</div>
-    </transition> -->
+    </transition>
     <!-- <transition  name="up">
         <div class="item3" v-show="nowId==2" @click="nowId=0">3</div>
     </transition> -->
@@ -26,7 +26,7 @@ let nowId = ref(0);
  width:100%;
 }
 .up-enter-active {
-  transition: all 3.3s ease;
+  transition: all 3.3s ease fordwords;
 }
 .up-enter {
   transform: translateY(100%);
