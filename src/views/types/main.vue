@@ -233,6 +233,16 @@
         <myFecths></myFecths>
       </div>
     </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          动画滑动
+        </div>
+      </template>
+      <div style="height: 100%;width:100%">
+        <myTranstion></myTranstion>
+      </div>
+    </el-card>
 
 
   </div>
@@ -250,7 +260,7 @@ import myWord from "@/components/wordCloud/wordCloud.vue"
 import myDel from "@/components/scrollX/scrollX.vue"
 import myScale from "@/components/scrollScale/scollScale.vue"
 import myImg from "@/components/Img2x3x/Img2x3x.vue"
-import myFecths from "@/components/allAPI/allAPI.vue"
+import myTranstion from "@/components/transtion/transtion.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -258,7 +268,7 @@ import bg7 from '@/assets/images/bg7.jpeg'
 
 const imgs = ref([bg6, bg7])
 let ip = window.LOCAL_IP
-console.log('局域网', ip)
+console.log('局域网',ip)
 defineProps({
   msg: String,
 });
@@ -413,10 +423,6 @@ function addWave() {//增加按钮波纹
     }, 1000)
   })
 }
-
-
-
-
 
 
 </script>
