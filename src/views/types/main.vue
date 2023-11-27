@@ -239,7 +239,7 @@
           动画滑动
         </div>
       </template>
-      <div >
+      <div>
         <myTranstion></myTranstion>
       </div>
     </el-card>
@@ -249,8 +249,18 @@
           完蛋我被美女包围了
         </div>
       </template>
-      <div >
+      <div>
         <myLoopImg></myLoopImg>
+      </div>
+    </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          超出换行，单行多行
+        </div>
+      </template>
+      <div>
+        <mybr2></mybr2>
       </div>
     </el-card>
 
@@ -272,6 +282,7 @@ import myScale from "@/components/scrollScale/scollScale.vue"
 import myImg from "@/components/Img2x3x/Img2x3x.vue"
 import myTranstion from "@/components/transtion/transtion.vue"
 import myLoopImg from "@/components/loopImg/loopImg.vue"
+import mybr2 from "@/components/tr2Wrap/tr2.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -279,7 +290,7 @@ import bg7 from '@/assets/images/bg7.jpeg'
 
 const imgs = ref([bg6, bg7])
 let ip = window.LOCAL_IP
-console.log('局域网',ip)
+console.log('局域网', ip)
 defineProps({
   msg: String,
 });
