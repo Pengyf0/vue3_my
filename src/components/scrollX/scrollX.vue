@@ -13,18 +13,26 @@ import { onMounted, ref } from 'vue';
 let myItem = ref(null)
 onMounted(() => {
   let startX = 0;
+  let dist=0;
   //手机上是touchstart
   myItem.value.addEventListener('mousedown', (e) => {
+    dist=0;
     startX = e.clientX;
   });
-  //手机上是touchdown
+  //手机上是touchend
   myItem.value.addEventListener('mousemove', (e) => {
     let x = e.clientX;
-    let dist = startX - x;
+    dist = startX - x;
+  });
+  myItem.value.addEventListener('mouseup', (e) => {
+    console.log(dist)
     if (dist > 0 && dist > 50) {
       e.currentTarget.classList.add('active');
     } else {
-      e.currentTarget.classList.remove('active');
+      if(dist<50){
+        e.currentTarget.classList.remove('active');
+      }
+      
     }
   });
 })

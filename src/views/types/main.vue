@@ -52,6 +52,16 @@
           <span style="--i:7">.</span>
         </div>
       </div>
+      <div class="loaderout">
+        <div class="loader"></div>
+      </div>
+      <div class="loaderout">
+        <div class="loaderCle"></div>
+      </div>
+      <div class="loaderout">
+        <div class="loaderClude"></div>
+      </div>
+
     </el-card>
     <el-card class="box-card">
       <template #header>
@@ -263,6 +273,16 @@
         <mybr2></mybr2>
       </div>
     </el-card>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          换色
+        </div>
+      </template>
+      <div>
+        <myGrid></myGrid>
+      </div>
+    </el-card>
 
 
   </div>
@@ -283,6 +303,7 @@ import myImg from "@/components/Img2x3x/Img2x3x.vue"
 import myTranstion from "@/components/transtion/transtion.vue"
 import myLoopImg from "@/components/loopImg/loopImg.vue"
 import mybr2 from "@/components/tr2Wrap/tr2.vue"
+import myGrid from "@/components/grid/grid.vue"
 
 import bg6 from '@/assets/images/bg6.jpeg'
 import bg7 from '@/assets/images/bg7.jpeg'
@@ -499,7 +520,6 @@ function addWave() {//增加按钮波纹
   display: flex;
   flex-flow: row wrap;
   // justify-content: space-evenly;
-
   .box-card {
     //flex均分换行
     --n: 4;
@@ -701,7 +721,7 @@ function addWave() {//增加按钮波纹
   }
 
   .loadOut {
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -727,6 +747,100 @@ function addWave() {//增加按钮波纹
         animation: textDance 1.5s ease-in-out infinite;
         animation-delay: calc(.1s*var(--i));
       }
+    }
+  }
+
+  .loaderout {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loaderCle {
+      --d: 22px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      color: #25b09b;
+      box-shadow:
+        calc(1*var(--d)) calc(0*var(--d)) 0 0,
+        calc(0.707*var(--d)) calc(0.707*var(--d)) 0 1px,
+        calc(0*var(--d)) calc(1*var(--d)) 0 2px,
+        calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+        calc(-1*var(--d)) calc(0*var(--d)) 0 4px,
+        calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+        calc(0*var(--d)) calc(-1*var(--d)) 0 6px;
+      animation: l27 1s infinite steps(8);
+    }
+
+    @keyframes l27 {
+      100% {
+        transform: rotate(1turn)
+      }
+    }
+
+    /* HTML: <div class="loader"></div> */
+    .loaderClude {
+      width: 80px;
+      height: 40px;
+      background:
+        radial-gradient(circle 25px at top right, #ffd738 40%, #0000),
+        #4dbefa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loaderClude:before,
+    .loaderClude:after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: -40px;
+      width: 36px;
+      height: 20px;
+      --c: radial-gradient(farthest-side, #fff 96%, #0000);
+      background:
+        var(--c) 100% 100% /30% 60%,
+        var(--c) 70% 0 /50% 100%,
+        var(--c) 0 100% /36% 68%,
+        var(--c) 27% 18% /26% 40%,
+        linear-gradient(#fff 0 0) bottom/67% 58%;
+      background-repeat: no-repeat;
+      animation: l10 2s linear infinite;
+    }
+
+    .loaderClude:after {
+      top: 15px;
+      --l: 200%;
+    }
+
+    @keyframes l10 {
+      100% {
+        left: var(--l, 105%)
+      }
+    }
+  }
+
+  .loader {
+
+    width: 15px;
+    aspect-ratio: 1;
+    background: #000;
+    border-radius: 50%;
+    animation: l6 1s infinite linear alternate;
+  }
+
+  @keyframes l6 {
+    0% {
+      box-shadow: 15px 0, -25px 0
+    }
+
+    50% {
+      box-shadow: 15px 0, -15px 0
+    }
+
+    100% {
+      box-shadow: 25px 0, -15px 0
     }
   }
 
@@ -864,6 +978,5 @@ function addWave() {//增加按钮波纹
     border: 1px solid #f2f2f2;
   }
 
-}
-</style>
+}</style>
 
