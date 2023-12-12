@@ -18,7 +18,6 @@
 import { onMounted } from 'vue';
 onMounted(() => {
   let doms = document.querySelectorAll('.box')
-  let domss = document.querySelector('.grid')
   
   doms.forEach(dom => {
     dom.style.setProperty('--x', 0)
@@ -27,7 +26,7 @@ onMounted(() => {
       let x = e.pageX - dom.offsetLeft;//e.pageX,鼠标距离左右的距离
       let y = e.pageY - dom.offsetTop+2258;//dom.offsetTop,当前div 距离文档顶部距离
       dom.style.setProperty('--x', x + 'px')
-      dom.style.setProperty('--y', y/2 - 80 + 'px')
+      dom.style.setProperty('--y', y/2 - 70 + 'px')
     }
 
   })
