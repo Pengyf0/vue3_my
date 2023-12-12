@@ -520,6 +520,8 @@ function addWave() {//增加按钮波纹
   display: flex;
   flex-flow: row wrap;
   // justify-content: space-evenly;
+  background: linear-gradient(to top, pink, skyblue);
+
   .box-card {
     //flex均分换行
     --n: 4;
