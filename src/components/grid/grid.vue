@@ -24,8 +24,8 @@ onMounted(() => {
     dom.style.setProperty('--x', 0)
     dom.style.setProperty('--y', 0)
     dom.onmousemove = (e) => {
-      let x = e.pageX - dom.offsetLeft;
-      let y = e.pageY - dom.offsetTop+2258;
+      let x = e.pageX - dom.offsetLeft;//e.pageX,鼠标距离左右的距离
+      let y = e.pageY - dom.offsetTop+2258;//dom.offsetTop,当前div 距离文档顶部距离
       dom.style.setProperty('--x', x + 'px')
       dom.style.setProperty('--y', y/2 - 80 + 'px')
     }
