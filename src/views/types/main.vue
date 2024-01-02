@@ -980,5 +980,6 @@ function addWave() {//增加按钮波纹
     border: 1px solid #f2f2f2;
   }
 
-}</style>
+}
+</style>
 

@@ -52,5 +52,22 @@ fetch('http://localhost:3000/api/tes2').then(res => {
     return res.json()
   }
 }).then(data => {
-  console.log(date);
+  console.log(data);
+})
+
+fetch('http://localhost:3000/api/postName', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'lisi',
+    age: 18
+  })
+}).then(res => {
+  if (res.ok) {
+    return res.json()
+  }
+}).then(data => {
+  console.log(data);
 })

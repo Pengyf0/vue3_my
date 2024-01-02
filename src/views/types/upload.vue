@@ -10,25 +10,21 @@ import axios from "axios"
 
 function fileChange(e) {
   let file = e.target.files[0]
-  file.text().then(text => {
-    console.log(111, text)
-    let _sliceBlob = new Blob([text]).slice(0, 5000);
-    let _sliceFlie = new File([_sliceBlob], 'test.png')//两个参数
-    console.log('blob', _sliceBlob)
-    console.log('file', _sliceFlie)
-  })
+  // file.text().then(text => {
+  //   console.log(111, text)
+  // })
   //文件类型可以在file和blob之间互相转化
-  //   let _sliceBlob = new Blob([file]).slice(0, 5000);
-  //   let _sliceFlie = new File([_sliceBlob], 'test.png')//两个参数
-  //   console.log('blob', _sliceBlob)
-  //   console.log('file', _sliceFlie)
-  // 
-  //   let fr = new FileReader();//异步文件读取，
-  //   fr.readAsDataURL(_sliceFlie);//readAsText转化成文字或者base64，参数为文件或者blob
-  //   fr.onload = function () {
-  //     console.log('base64', fr.result)
-  //   }
-  //   upload(file)
+  let _sliceBlob = new Blob([file]).slice(0, 5000);
+  let _sliceFlie = new File([_sliceBlob], 'test.png')//两个参数
+  console.log('blob', _sliceBlob)
+  console.log('file', _sliceFlie)
+
+  let fr = new FileReader();//异步文件读取，
+  fr.readAsDataURL(_sliceFlie);//readAsText转化成文字或者base64，参数为文件或者blob
+  fr.onload = function () {
+    console.log('base64', fr.result)
+  }
+  upload(file)
 }
 
 function upload(file, onProgress, onFinish) {

@@ -9,7 +9,7 @@ function initPdf() {
   let url = "http://www.baidu.com"
   let dom = document.querySelector('.pdfShow');
   let html = `<iframe ref="iframe" src="${url}}" style="width:100%;height:100%;autoHeight:true"></iframe>`
-  dom.innerHTML = html
+  dom.innerHTML = html;
 }
 </script>
 

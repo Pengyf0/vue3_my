@@ -1,3 +1,9 @@
+/*
+ * @Author: Pengyf 
+ * @Date: 2023-10-11 16:39:17 
+ * @Last Modified by:   Pengyf 
+ * @Last Modified time: 2023-10-11 16:39:17 
+ */
 //启动模拟后台多个接口调用
 const express = require('express');
 const app = express();
@@ -7,7 +13,7 @@ app.listen(3000, () => {
 });
 let list = []
 let num = 0;
-for (let i = 0; i < 10000; i++) {
+for (let i = 0; i < 100000; i++) {
   num++
   list.push({
     src: 'https://miro.medium.com/fit/c/64/64/1*XYGoKrb1w5zdWZLOIEevZg.png',

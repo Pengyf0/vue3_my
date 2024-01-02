@@ -12,8 +12,8 @@ let list = [
 ]
 
 function startFetch() {
-  myRquest(list, 2).then(res => {
-    console.log(res)
+  myRquest(list, 3).then(res => {
+    console.log('返回结果',res)
   })
 }
 

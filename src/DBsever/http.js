@@ -10,7 +10,7 @@ for (let i = 0; i < 100000; i++) {
   num++
   list.push({
     src: 'https://miro.medium.com/fit/c/64/64/1*XYGoKrb1w5zdWZLOIEevZg.png',
-    text: `hello world ${num}`,
+    text: `测试项目条目 ${num}`,
     tid: num
   })
 }

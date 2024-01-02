@@ -1,3 +1,10 @@
+/*
+ * @Author: Pengyf 
+ * @Date: 2023-10-12 17:31:41 
+ * @Last Modified by:   Pengyf 
+ * @Last Modified time: 2023-10-12 17:31:41 
+ */
+
 function hexToRgb(hex) {
   let rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return rgb ? [
