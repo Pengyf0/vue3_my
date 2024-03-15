@@ -105,7 +105,7 @@ const addCount = ref(0);
   }
 
   .ipt {
-    width: 360px;
+    width: 260px;
     padding: 20px 60px 20px 20px;
     background: #fff;
     border-radius: 20px;
