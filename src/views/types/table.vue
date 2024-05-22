@@ -1,13 +1,43 @@
 
 <template>
-  <div>大量数据优化{{ addCount }}5554
+  <div class="tables">
+
     <div>
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>表格</span>
+        </div>
+        <el-table :data="tableData" style="width: 100%">
+          <el-table-column prop="name" label="水果" width="180">
+          </el-table-column>
+          <el-table-column prop="price" label="价格">
+          </el-table-column>
+          <el-table-column prop="num" label="数量">
+            <template #default="scope">
+              {{ scope.row.num }}
+              <el-button size="mini" @click="handleAdd(scope.$index, scope.row)">+</el-button>
+            </template>
+          </el-table-column>
+          <el-table-column label="总价">
+            <template #default="scope">
+              <div>
+                {{ computedPrice(scope.row) }}
+              </div>
+            </template>
+          </el-table-column>
+        </el-table>
+      </el-card>
+    </div>
+
+    <div>
+      大量数据优化{{ addCount }}
       vue2
       <br>
       Object.freeze();
       will-change:auto;
       list.length=10000;
     </div>
+
 
     <div v-loading="showLoading" element-loading-text="数据加载中...">
       <p>
@@ -24,17 +54,31 @@
   </div>
 </template>
 <script setup>
-import { ref, onBeforeUnmount } from "vue";
+import { ref, onBeforeUnmount, computed } from "vue";
+import { useComputed } from "../../utils/myHooks/useComputed";
 
 import { ElMessage } from "element-plus"
 
-defineProps({
-  msg: String,
-});
+
 let showLoading = ref(false);
 let showTable = ref(false);
-let timer = null
+let timer = null;
+let tableData = ref([
+  { name: '梨', price: '100', num: 1, },
+  { name: '苹果', price: '200', num: 1, },
+  { name: '西瓜', price: '200', num: 1, },
+  { name: '梨1', price: '110', num: 1, },
+  { name: '苹果1', price: '220', num: 1, },
+  { name: '西瓜1', price: '330', num: 1, },
+])
+function totalPrice(row) {
+  console.log('计算属性')
+  return row.price * row.num;
+}
+const computedPrice = useComputed(totalPrice)
 
+
+const addCount = ref(0);
 const switchTableShow = () => {
   // 先展示 loading
   showLoading.value = true;
@@ -84,6 +128,10 @@ getList().then((list) => {
   }
   render(page)
 })
+
+function handleAdd(ind, row) {
+  row.num += 1
+}
 onBeforeUnmount(() => {
   clearTimeout(timer)
 })
@@ -91,12 +139,19 @@ console.log(44, window.performance)
 // console.log(window.performance.timing.loadEventEnd - window.performance.timing.navigationStart)
 
 
-const addCount = ref(0);
+
 </script>
 
 <style>
 .plan {
   will-change: transform;
+}
+
+.tables {
+  display: grid;
+  grid-template-columns: 700px 700px;
+
+  gap: 10px;
 }
 </style>
 

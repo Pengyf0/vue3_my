@@ -10,8 +10,8 @@ const routes = [
     children: [
       { path: '', component: () => import('../views/types/main.vue') },
       { path: 'book', component: () => import('../views/types/book.vue') },
-      { path: 'plan', component: () => import('../views/types/plan.vue') },
-      { path: 'learn', component: () => import('../views/types/learn.vue') },
+      { path: 'table', component: () => import('../views/types/table.vue') },
+      { path: 'gis', component: () => import('../views/types/learn.vue') },
       { path: 'idea', component: () => import('../views/types/idea.vue') },
       { path: 'myZoom', component: () => import('../views/types/myZoom.vue') },
       { path: 'upload', component: () => import('../views/types/upload.vue') },

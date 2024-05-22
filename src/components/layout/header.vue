@@ -33,7 +33,7 @@ const titlList = reactive({
   list: [
     { title: "首页", path: "/main" },
     { title: "书库", path: "/main/book" },
-    { title: "大数据", path: "/main/plan" },
+    { title: "表格", path: "/main/table" },
     { title: "学习", path: "/main/learn" },
     { title: "随笔", path: "/main/idea" },
     { title: "上传下载", path: "/main/upload" },

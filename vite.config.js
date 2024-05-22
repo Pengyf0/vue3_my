@@ -20,8 +20,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-//自动添加前缀
+//自动添加前缀,postcss 自带
 // import autoprefixer from "autoprefix"
+//import cssnano from "cssnano"
 
 const os = require('os')//配置局域网地址
 function getLocalIP() {
@@ -88,7 +89,7 @@ export default defineConfig({
     //     algorithm: 'gzip',//指定打包方式为gzip
     //     threshold: 30720,//大于30KB的压缩
     //     verbose: false,//不在浏览器显示
-    //     deleteOriginFile: true//打包后删除原文件
+    //     deleteOriginFile: true,//打包后删除原文件
     //     minRatio: 0.8 // 压缩率小于0.8才会压缩
     //   }
     // ),
@@ -99,7 +100,8 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    // autoprefixer()
+    //autoprefixer()
+    //cssnano()
   ],
   resolve: {//路径省略简便别名设置，
     extensions: ['.js', '.css'],
