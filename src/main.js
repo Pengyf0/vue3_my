@@ -11,6 +11,11 @@ import router from './router'
 // import 'element-plus/dist/index.css'
 import echarts from '@/utils/echarts.js'
 
+import * as Cesium from 'cesium';
+console.log('3d', Cesium)
+
+window.CESIUM_BASE_URL = '/node_modules/cesium/Build/Cesium/';
+
 let tabCount = 1
 localStorage.setItem('44', tabCount)
 document.addEventListener('onload', () => {

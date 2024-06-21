@@ -1,4 +1,3 @@
-
 <template>
   <div class="head">
     <div class="content">
@@ -34,7 +33,7 @@ const titlList = reactive({
     { title: "首页", path: "/main" },
     { title: "书库", path: "/main/book" },
     { title: "表格", path: "/main/table" },
-    { title: "学习", path: "/main/learn" },
+    { title: "gis", path: "/main/gis" },
     { title: "随笔", path: "/main/idea" },
     { title: "上传下载", path: "/main/upload" },
   ],
@@ -99,4 +98,3 @@ const titlList = reactive({
   }
 }
 </style>
-

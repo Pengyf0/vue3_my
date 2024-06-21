@@ -47,7 +47,6 @@ function fileChange(e) {
   fr.readAsDataURL(file)//异步事件，base64
   fr.onload = function () {
     chooseImg.value = fr.result;
-
     // console.log('数据', fr.result)
   }
 }

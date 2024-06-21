@@ -19,6 +19,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { resolve } from 'path';
 
 //自动添加前缀,postcss 自带
 // import autoprefixer from "autoprefix"
@@ -106,7 +107,8 @@ export default defineConfig({
   resolve: {//路径省略简便别名设置，
     extensions: ['.js', '.css'],
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      cesium: resolve(__dirname, 'node_modules/cesium')
     }
   },
   define: {//配置默认全局参数
