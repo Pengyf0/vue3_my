@@ -1,5 +1,4 @@
-
-<template >
+<template>
   <div class="login">
     <div class="top">亲爱的游客，欢迎登录！</div>
     <div class="ipt">
@@ -49,8 +48,8 @@ defineProps({
 });
 const router = useRouter();
 const formData = reactive({
-  name: "",
-  password: "",
+  name: "3333",
+  password: "3333",
 });
 const phoneTest = reactive({
   tel: "", //手机
@@ -60,6 +59,7 @@ const state = reactive({
   isLogin: false,
   isActive: true,
 });
+const form = ref(null)
 const rules = reactive({
   name: [
     { required: true, message: "请输入账号", trigger: "blur" },
@@ -83,11 +83,34 @@ function loginType(num) {
   state.isActive = num === 1;
 }
 function onSubmit() {
-  state.isLogin = true;
-  setTimeout(() => {
-    state.isLogin = false;
-    router.push("/main");
-  }, 2000);
+  //校验账号密码成功可以登陆
+  form.value.validate((valid, fields) => {
+    if (valid) {
+      state.isLogin = true;
+      login()
+    } else {
+      console.log('error submit!', fields)
+    }
+  })
+
+  return
+}
+function login() {
+  fetch('api/login').then(res => res.json())
+    .then(res => {
+      setTimeout(() => {
+        state.isLogin = false;
+        ElMessage({
+          message: '登录成功',
+          type: 'success',
+        })
+        router.push("/main");
+      }, 1000);
+      console.log('登陆结果', res)
+    }).catch(err => {
+      state.isLogin = false;
+      ElMessage.error('登陆失败')
+    })
 }
 
 const addCount = ref(0);
@@ -136,5 +159,3 @@ const addCount = ref(0);
   }
 }
 </style>
-
-

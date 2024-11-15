@@ -1,8 +1,7 @@
-
 <template>
   <div class="tables">
 
-    <div>
+    <div class="table">
       <el-card>
         <div slot="header" class="clearfix">
           <span>表格</span>
@@ -29,20 +28,21 @@
       </el-card>
     </div>
 
-    <div>
+    <div class="table">
       大量数据优化{{ addCount }}
       vue2
       <br>
       Object.freeze();
       will-change:auto;
-      list.length=10000;
+      list.length={{ arrtList.length }}
     </div>
 
 
-    <div v-loading="showLoading" element-loading-text="数据加载中...">
+    <div class="table" v-loading="showLoading" element-loading-text="数据加载中...">
       <p>
         显示/隐藏 table：
         <el-switch :model-value="showTable" @click="switchTableShow"></el-switch>
+        {{ arrtList.length }}
       </p>
       <div v-if="showTable">
         <div v-for="(item, index) of arrtList" :key="index">
@@ -56,8 +56,6 @@
 <script setup>
 import { ref, onBeforeUnmount, computed } from "vue";
 import { useComputed } from "../../utils/myHooks/useComputed";
-
-import { ElMessage } from "element-plus"
 
 
 let showLoading = ref(false);
@@ -90,6 +88,7 @@ const switchTableShow = () => {
     // 创建一个宏任务，等上面阻塞的微任务执行完成后，再显示计算耗时
     setTimeout(() => {
       let endTime = +new Date();
+      console.log(`渲染耗时：${(endTime - startTime) / 1000}s`);
       ElMessage.success(`渲染耗时：${(endTime - startTime) / 1000}s`);
     }, 0);
   }, 200);
@@ -98,7 +97,7 @@ let arrtList = ref([])
 function getList() {
   return new Promise(function (resolve, reject) {
     var ajax = new XMLHttpRequest();
-    ajax.open('get', 'http://127.0.0.1:8000');
+    ajax.open('get', 'http://127.0.0.1:5173/api/test2');
     ajax.send();
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status == 200) {
@@ -115,18 +114,20 @@ getList().then((list) => {
   const page = 0
   const limit = 2000
   const totalPage = Math.ceil(total / limit)
-  const render = (page) => {
-    if (page >= totalPage) return
-    timer = setTimeout(() => {
-      for (let i = page * limit; i < page * limit + limit; i++) {
-        const item = list[i]
-        arrtList.value.push(item)
-      }
-      console.log('当前', arrtList.value.length)
-      render(page + 1)
-    }, 1000)
-  }
-  render(page)
+  // arrtList.value = list
+  arrtList.value = Object.freeze(list)
+  // const render = (page) => {
+  //   if (page >= totalPage) return
+  //   timer = setTimeout(() => {
+  //     for (let i = page * limit; i < page * limit + limit; i++) {
+  //       const item = list[i]
+  //       arrtList.value.push(item)
+  //     }
+  //     console.log('当前', arrtList.value.length)
+  //     render(page + 1)
+  //   }, 1000)
+  // }
+  // render(page)
 })
 
 function handleAdd(ind, row) {
@@ -142,16 +143,24 @@ console.log(44, window.performance)
 
 </script>
 
-<style>
+<style lang="scss">
 .plan {
   will-change: transform;
 }
 
 .tables {
+  padding: 20px;
   display: grid;
   grid-template-columns: 700px 700px;
 
-  gap: 10px;
+  gap: 20px;
+
+  .table {
+    border: 1px solid #ccc;
+    padding: 20px;
+    height: 400px;
+    overflow: auto;
+    will-change: transform;
+  }
 }
 </style>
-

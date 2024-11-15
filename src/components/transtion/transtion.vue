@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { onMounted, nextTick, ref } from "vue";
+import { ref } from "vue";
 let nowId = ref(3);
 </script>
 
@@ -27,7 +27,6 @@ let nowId = ref(3);
 }
 
 .item {
-  border: 1px solid red;
   height: 100px;
   width: 100%;
 }

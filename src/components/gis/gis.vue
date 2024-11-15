@@ -69,13 +69,6 @@ function initMap() {
         }),
 
       }),
-      new ImageLayer({
-        source: new ImageStatic({
-          url: 'http://localhost:5173/src/assets/images/loginbg.jpeg', // URL to your static image
-          imageExtent: extent,
-        }),
-
-      }),
       new TileLayer({
         source: new OSM(),
         // source: new XYZ({
